@@ -20,9 +20,10 @@ public class EchartsUtil {
         option = option.replaceAll("\\s+", "").replaceAll("\"", "'");
 
         // 将option字符串作为参数发送给echartsConvert服务器
-        Map<String, String> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
+        params.put("reqMethod", "echarts");
         params.put("opt", option);
-        String response = HttpUtil.post(url, params, "utf-8");
+        String response = HttpUtil.postUrl(url, params, "utf-8");
         System.out.println("response = " + response);
         // 解析echartsConvert响应
         JSONObject responseJson = JSON.parseObject(response);

@@ -2,7 +2,10 @@ package com.example.javaecharts;
 
 import com.alibaba.fastjson.JSON;
 import com.example.javaecharts.utils.EchartsUtil;
+import com.example.javaecharts.utils.PhantomJS;
+import com.example.javaecharts.utils.PhantomJSUtil;
 import freemarker.template.Template;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -13,6 +16,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.util.Calendar;
 import java.util.HashMap;
 
 @Component
@@ -41,13 +45,22 @@ public class EventApplicationRunner implements ApplicationRunner {
         datas.put("title", title);
 
         // 生成option字符串
-        Template template = freeMarkerConfigurer.getConfiguration().getTemplate("option2.ftl");
+        Template template = freeMarkerConfigurer.getConfiguration().getTemplate("option.ftl");
         StringWriter stringWriter = new StringWriter();
         template.process(datas, stringWriter);
         String s = stringWriter.toString();
-        System.out.println("s = " + s);
+        long nowStr = Calendar.getInstance().getTimeInMillis();
+        String imgUrlPath = "F:/echarts/";
         // 根据option参数
-        String base64 = EchartsUtil.generateEchartsBase64(s);
+//        String base64 = EchartsUtil.generateEchartsBase64(s);
+        String imageName = "pie"+nowStr+".png";
+        PhantomJS js = new PhantomJS();
+        js.setOpt(datas);
+        js.setReqMethod("echarts");
+        js.setFile(imgUrlPath+imageName);
+        String base64 = PhantomJSUtil.phantomJS("http://localhost:6666", JSON.parseObject(JSON.toJSONString(js)));
+
+
         System.out.println("BASE64:" + base64);
     }
 
