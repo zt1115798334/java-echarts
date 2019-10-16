@@ -1,1 +1,235 @@
-{"tooltip":{"trigger":"axis","axisPointer":{"type":"none"}},"legend":{"data":[{"name":"正面","icon":"circle"},{"name":"负面","icon":"circle"},{"name":"中性","icon":"circle"}],"right":10,"textStyle":{},"itemWidth":10,"itemHeight":10,"itemGap":35},"grid":{"left":10,"right":10,"bottom":"3%","containLabel":true},"xAxis":[{"type":"category","data":["2019-10-10","2019-10-11","2019-10-12","2019-10-13","2019-10-14","2019-10-15","2019-10-16"],"axisLine":{"show":true},"axisTick":{"show":false}}],"yAxis":[{"type":"value","axisTick":{"show":false},"axisLine":{"show":false}}],"series":[{"name":"正面","type":"bar","data":[23045,21636,19349,11225,19692,19603,5816],"barWidth":8,"itemStyle":{"normal":{"color":"#00dbba","barBorderRadius":[5,5,0,0]}}},{"name":"负面","type":"bar","data":[99923,105665,99663,81205,96178,91903,31358],"barWidth":8,"itemStyle":{"normal":{"color":"#fd7a59","barBorderRadius":[5,5,0,0]}}},{"name":"中性","type":"bar","data":[815405,796641,734326,574059,748932,710506,240021],"barWidth":8,"itemStyle":{"normal":{"color":"#3c7af9","barBorderRadius":[5,5,0,0]}}}]}
+{
+"backgroundColor": "#f2f2f2",
+"title": {
+"text": "",
+"subtext": "",
+"x": "center",
+"y": "5%"
+},
+"tooltip": {
+"trigger": "item",
+"formatter": "{b}"
+},
+"roam": "true",
+"dataRange": {
+"min": 0,
+"max": 5,
+"x": "5%",
+"y": "80%",
+"splitList": [
+{
+"start": 3.5,
+"end": 5,
+"label": "发展区",
+"color": "#ff704d"
+},
+{
+"start": 2.5,
+"end": 3.5,
+"label": "未发展区",
+"color": "#4FA8F9"
+}
+],
+"color": [
+"red",
+"blue"
+]
+},
+"toolbox": {
+"show": true,
+"orient": "vertical",
+"x": "right",
+"y": "center",
+"feature": {
+"mark": {
+"show": true
+},
+"dataView": {
+"show": true,
+"readOnly": false
+},
+"dataZoom": {
+"show": true
+},
+"restore": {
+"show": true
+},
+"saveAsImage": {
+"show": true
+}
+}
+},
+"roamController": {
+"show": true,
+"x": "right",
+"mapTypeControl": {
+"china": true
+}
+},
+"series": [
+{
+"name": "投标",
+"type": "map",
+"mapType": "china",
+"roam": false,
+"itemStyle": {
+"normal": {
+"label": {
+"show": true
+}
+},
+"emphasis": {
+"label": {
+"show": true
+}
+}
+},
+"data": [
+{
+"name": "山东",
+"value": 3
+},
+{
+"name": "河南",
+"value": 4
+},
+{
+"name": "重庆",
+"value": 4
+},
+{
+"name": "广西",
+"value": 4
+},
+{
+"name": "四川",
+"value": 4
+},
+{
+"name": "海南",
+"value": 4
+},
+{
+"name": "北京",
+"value": 4
+},
+{
+"name": "天津",
+"value": 4
+},
+{
+"name": "上海",
+"value": 4
+},
+{
+"name": "江苏",
+"value": 3
+},
+{
+"name": "浙江",
+"value": 3
+},
+{
+"name": "福建",
+"value": 3
+},
+{
+"name": "安徽",
+"value": 4
+},
+{
+"name": "江西",
+"value": 3
+},
+{
+"name": "湖北",
+"value": 4
+},
+{
+"name": "湖南",
+"value": 4
+},
+{
+"name": "广东",
+"value": 4
+},
+{
+"name": "辽宁",
+"value": 4
+},
+{
+"name": "吉林",
+"value": 3
+},
+{
+"name": "黑龙江",
+"value": 3
+},
+{
+"name": "内蒙古",
+"value": 3
+},
+{
+"name": "云南",
+"value": 4
+},
+{
+"name": "贵州",
+"value": 4
+},
+{
+"name": "山西",
+"value": 4
+},
+{
+"name": "陕西",
+"value": 4
+},
+{
+"name": "甘肃",
+"value": 4
+},
+{
+"name": "新疆",
+"value": 4
+},
+{
+"name": "西藏",
+"value": 3
+},
+{
+"name": "青海",
+"value": 4
+},
+{
+"name": "宁夏",
+"value": 4
+},
+{
+"name": "台湾",
+"value": 4
+},
+{
+"name": "香港",
+"value": 3
+},
+{
+"name": "澳门",
+"value": 3
+},
+{
+"name": "南海诸岛",
+"value": 0,
+"itemStyle": {
+"normal": {
+"opacity": 0,
+"label": {
+"show": false
+}
+}
+}
+}
+]
+}
+]
+}
