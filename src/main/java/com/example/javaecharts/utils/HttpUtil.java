@@ -86,7 +86,7 @@ public class HttpUtil {
     }
 
     public static String postUrl(String url, Map<String, Object> params, String charset) {
-        logger.info("params = " + params);
+        logger.info("params = " + JSONObject.toJSONString(params));
         String responseEntity = "";
         // 创建CloseableHttpClient对象
         CloseableHttpClient client = HttpClients.createDefault();

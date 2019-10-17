@@ -61,11 +61,16 @@ function table(args) {
             height: tableheight
         };
         // var base64 = 'data:image/png;base64,' + page.renderBase64('png');
-        page.render(args.file);// 将整个page保存为文件,可以是png，jpg, gif,pdf
-        page.close();
-        writeResponse(args.response, {
-            error_no: 0
+        var base64 = 'data:image/png;base64,' + page.renderBase64('png');
+        writeResponse(args.response, {// 返回给http请求
+            error_no: 0,
+            base64: base64
         });
+        // page.render(args.file);// 将整个page保存为文件,可以是png，jpg, gif,pdf
+        // page.close();
+        // writeResponse(args.response, {
+        //     error_no: 0
+        // });
     });
     page.onError = function (msg, trace) {
         writeResponse(args.response, {

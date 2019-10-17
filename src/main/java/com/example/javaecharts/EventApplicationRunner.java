@@ -46,18 +46,8 @@ public class EventApplicationRunner implements ApplicationRunner {
         StringWriter stringWriter = new StringWriter();
         template.process(datas, stringWriter);
         String s = stringWriter.toString();
-        Map<String, Object> opt = (Map<String, Object>) JSONObject.parse(s);
-        System.out.println("opt = " + opt);
-        long nowStr = Calendar.getInstance().getTimeInMillis();
-        String imgUrlPath = "E:/echarts/";
         // 根据option参数
-//        String base64 = EchartsUtil.generateEchartsBase64(s);
-        String imageName = "pie" + nowStr + ".png";
-        PhantomJS js = new PhantomJS();
-        js.setOpt(opt);
-        js.setReqMethod("echarts");
-        js.setFile(imgUrlPath + imageName);
-        String base64 = PhantomJSUtil.phantomJS("http://localhost:6666", JSON.parseObject(JSON.toJSONString(js)));
+        String base64 = PhantomJSUtil.phantomJS("http://localhost:6666", s);
 
 
         System.out.println("BASE64:" + base64);
