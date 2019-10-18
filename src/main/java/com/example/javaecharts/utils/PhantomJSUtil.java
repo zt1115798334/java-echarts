@@ -38,6 +38,8 @@ public class PhantomJSUtil {
     public static String phantomJS(String requestUrl, String option) {
 
         JSONObject params = new JSONObject();
+        params.put("width", 1558);
+        params.put("height", 375);
         params.put("reqMethod", "echarts");
         params.put("opt", JSONObject.parseObject(option));
         String base64 = "";
@@ -51,7 +53,6 @@ public class PhantomJSUtil {
             base64 = responseJson.getString("base64");
         } else {// 未正常返回
             String string = responseJson.getString("error_info");
-            throw new RuntimeException(string);
         }
 
         return base64;

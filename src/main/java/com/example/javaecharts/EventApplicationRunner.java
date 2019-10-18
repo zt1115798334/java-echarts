@@ -1,8 +1,6 @@
 package com.example.javaecharts;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.example.javaecharts.utils.PhantomJS;
 import com.example.javaecharts.utils.PhantomJSUtil;
 import freemarker.template.Template;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import java.io.StringWriter;
-import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class EventApplicationRunner implements ApplicationRunner {
@@ -40,17 +36,18 @@ public class EventApplicationRunner implements ApplicationRunner {
         datas.put("categories", JSON.toJSONString(categories));
         datas.put("values", JSON.toJSONString(values));
         datas.put("title", title);
-
+        long start = System.currentTimeMillis();
         // 生成option字符串
         Template template = freeMarkerConfigurer.getConfiguration().getTemplate("option2.ftl");
         StringWriter stringWriter = new StringWriter();
         template.process(datas, stringWriter);
         String s = stringWriter.toString();
         // 根据option参数
-        String base64 = PhantomJSUtil.phantomJS("http://localhost:6666", s);
-
-
+//        String base64 = PhantomJSUtil.phantomJS("http://114.55.179.202:8181", s);
+        String base64 = PhantomJSUtil.phantomJS("http://127.0.0.1:6666", s);
         System.out.println("BASE64:" + base64);
+
+        System.out.println(System.currentTimeMillis() - start);
     }
 
 }
